@@ -61,7 +61,7 @@ public class FormHitungHari extends javax.swing.JFrame {
     // 🔹 Format hari ke bahasa Indonesia
     private String formatHari(String hari) {
         return switch (hari.toUpperCase()) {
-            case "MONDAY" -> "Senin";
+            case "MONDAY" -> "Senin";  
             case "TUESDAY" -> "Selasa";
             case "WEDNESDAY" -> "Rabu";
             case "THURSDAY" -> "Kamis";
@@ -98,12 +98,12 @@ public class FormHitungHari extends javax.swing.JFrame {
         PilihTanggal = new javax.swing.JLabel();
         jCalendar1 = new com.toedter.calendar.JCalendar();
         btnReset = new javax.swing.JButton();
-        btnReset2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         DariTahun = new javax.swing.JTextField();
         SampaiTahun = new javax.swing.JTextField();
         TotalSelisih = new javax.swing.JTextField();
         btnSelisih = new javax.swing.JButton();
+        btnReset2 = new javax.swing.JButton();
         Keluar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -115,7 +115,7 @@ public class FormHitungHari extends javax.swing.JFrame {
         InputBulan.setForeground(new java.awt.Color(255, 255, 255));
         InputBulan.setText("Input Bulan");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "januari", "Februari", "Maret ", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -142,9 +142,19 @@ public class FormHitungHari extends javax.swing.JFrame {
 
         HariPertama.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         HariPertama.setText("Hari Pertama:");
+        HariPertama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HariPertamaActionPerformed(evt);
+            }
+        });
 
         HariKedua.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         HariKedua.setText("Hari Terakhir:");
+        HariKedua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HariKeduaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -216,15 +226,6 @@ public class FormHitungHari extends javax.swing.JFrame {
             }
         });
 
-        btnReset2.setBackground(new java.awt.Color(153, 153, 153));
-        btnReset2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnReset2.setText("Reset");
-        btnReset2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReset2ActionPerformed(evt);
-            }
-        });
-
         jPanel4.setBackground(new java.awt.Color(255, 204, 204));
 
         DariTahun.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
@@ -240,6 +241,11 @@ public class FormHitungHari extends javax.swing.JFrame {
 
         TotalSelisih.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         TotalSelisih.setText("Selisih:");
+        TotalSelisih.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TotalSelisihActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -271,6 +277,15 @@ public class FormHitungHari extends javax.swing.JFrame {
         btnSelisih.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelisihActionPerformed(evt);
+            }
+        });
+
+        btnReset2.setBackground(new java.awt.Color(153, 153, 153));
+        btnReset2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnReset2.setText("Reset");
+        btnReset2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReset2ActionPerformed(evt);
             }
         });
 
@@ -311,15 +326,15 @@ public class FormHitungHari extends javax.swing.JFrame {
                                                 .addGap(18, 18, 18)
                                                 .addComponent(btnReset))
                                             .addComponent(SpinnerTahun, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnSelisih, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(18, 18, 18)
+                                        .addComponent(btnSelisih, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnReset2)
                                         .addGap(18, 18, 18)
                                         .addComponent(Keluar))
@@ -420,7 +435,7 @@ public class FormHitungHari extends javax.swing.JFrame {
                     " adalah " + jumlahHari + " hari.",
                     "Hasil Perhitungan", JOptionPane.INFORMATION_MESSAGE);
 
-        } catch (HeadlessException e) {
+        } catch (HeadlessException e) {    
             JOptionPane.showMessageDialog(this, "Terjadi kesalahan input!",
                     "Error", JOptionPane.ERROR_MESSAGE);
         }        // TODO add your handling code here:
@@ -477,7 +492,7 @@ public class FormHitungHari extends javax.swing.JFrame {
             LocalDate dari = tanggalDari.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
             LocalDate sampai = tanggalSampai.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
             long selisihHari = Math.abs(ChronoUnit.DAYS.between(dari, sampai));
-
+  
             DariTahun.setText("Dari: " + sdf.format(tanggalDari));
             SampaiTahun.setText("Sampai: " + sdf.format(tanggalSampai));
             TotalSelisih.setText("Selisih: " + selisihHari + " hari");
@@ -490,7 +505,7 @@ public class FormHitungHari extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Terjadi kesalahan dalam menghitung selisih!");
         }// TODO add your handling code here:
     }//GEN-LAST:event_btnSelisihActionPerformed
-
+ 
     private void KeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeluarActionPerformed
         int confirm = JOptionPane.showConfirmDialog(this,
                 "Apakah Anda yakin ingin keluar?",
@@ -507,6 +522,18 @@ public class FormHitungHari extends javax.swing.JFrame {
         tanggalPertama = null;
         tanggalKedua = null;  // TODO add your handling code here:
     }//GEN-LAST:event_btnReset2ActionPerformed
+
+    private void HariPertamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HariPertamaActionPerformed
+         // TODO add your handling code here:
+    }//GEN-LAST:event_HariPertamaActionPerformed
+
+    private void HariKeduaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HariKeduaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HariKeduaActionPerformed
+
+    private void TotalSelisihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotalSelisihActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TotalSelisihActionPerformed
 
     /**
      * @param args the command line arguments
